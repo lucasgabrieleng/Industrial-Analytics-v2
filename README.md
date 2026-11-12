@@ -4,6 +4,58 @@ A modern, interactive web interface for **Industrial KPI Analytics**, evolving t
 
 ---
 
+## Live Interactive Demo
+
+> **Note:** GitHub disables live JavaScript execution inside `README.md`. Use the links below to launch the full interactive dashboard directly in your browser:
+
+- **Live Deployed App:** [Launch Industrial Analytics](https://lucasgabrieleng.github.io/IndustrialAnalytics-UI/) *(update this URL if you deploy to Vercel, Netlify, or a different GitHub Pages repo name)*
+- **Instant Browser IDE & Preview:** [Run in StackBlitz](https://stackblitz.com/github/lucasgabrieleng/IndustrialAnalytics-UI) *(runs the full React + Vite app in-browser without cloning)*
+- **Original Streamlit Edition:** [industrialanalytics.streamlit.app](https://industrialanalytics.streamlit.app/)
+
+> **Tip for GitHub Showcase:** Edit this `README.md` directly on GitHub.com and drag-and-drop a short `.mp4` screen recording or `.gif` of the **OEE Speedometer Simulator** and **Theme Studio** right below this line—GitHub will auto-play it directly inside the README.
+
+---
+
+## Analytics & Calculation Architecture
+
+GitHub natively renders the diagram below with interactive zoom and pan:
+
+```mermaid
+flowchart LR
+    subgraph Inputs["Plant Telemetry & Inputs"]
+        A["Availability (%)"]
+        P["Performance (%)"]
+        Q["Quality (%)"]
+        U["Utility Inputs (Planta A/B/C)"]
+        D["Downtime Logs"]
+    end
+
+    subgraph Engine["Client-Side Analytics Engine"]
+        OEE["OEE = (A × P × Q) / 10,000"]
+        OLS["OLS Regression & Pearson r"]
+        PAR["Pareto Cumulative Share (%)"]
+    end
+
+    subgraph Views["Interactive Dashboard Views"]
+        V1["Speedometer Simulator"]
+        V2["OEE Pillars · Radar · Bubble · Heatmap"]
+        V3["Consumption & Correlation Matrix"]
+        V4["Downtime Donut & Pareto"]
+        TS["Theme Studio → .streamlit/config.toml"]
+    end
+
+    A & P & Q --> OEE
+    A & P & Q --> OLS
+    D --> PAR
+    OEE --> V1 & V2
+    U --> V3
+    OLS --> V3
+    PAR --> V4
+    V1 & V2 & V3 & V4 -. "Light/Dark + Accent Sync" .-> TS
+```
+
+---
+
 ## Key Features & Dynamic Views
 
 ### 1. Overview & Live OEE Speedometer Simulator
