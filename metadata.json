@@ -1,0 +1,6 @@
+{
+  "name": "Industrial Analytics",
+  "description": "Interactive industrial KPI analytics platform for OEE, equipment heatmaps, utility consumption, correlation matrices, and downtime Pareto analysis with customizable themes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
